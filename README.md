@@ -8,7 +8,7 @@ Designed with clarity and usability in mind .
 
 ## 🔗 Live Site
 
-[Visit Portfolio](https://anaghgoel.github.io/portfolio/)
+[Visit Portfolio](https://anaghgoel.github.io/Personal_Website/)
 
 ---
 
