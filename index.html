@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anagh Goel | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --text: #ffffff;
+      --accent: #3b82f6;
+      --card-bg: rgba(30, 41, 59, 0.8);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      min-height: 100vh;
+      background-color: #0f172a;
+      background-image: 
+        linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)),
+        url('https://www.smu.edu/-/media/site/meadows/newsstories/2023/bisk-smu-new-masters-program/what-is-creative-coding-header-image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    /* Profile Picture Styles */
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      margin: 0 auto 20px;
+      display: block;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    
+    /* Name Drawing Animation */
+    .drawing-name {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .drawing-name::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: #0f172a;
+      animation: drawName 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+      transform-origin: 0 100%;
+    }
+    
+    @keyframes drawName {
+      from { transform: scaleX(1); }
+      to { transform: scaleX(0); }
+    }
+    
+    /* Rest of your existing styles */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      margin-bottom: 40px;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+    
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      margin-bottom: 80px;
+      padding: 40px 0;
+    }
+    
+    #hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--text);
+    }
+    
+    #hero p {
+      font-size: 1.3rem;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Skills Section */
+    #skills {
+      margin-bottom: 80px;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .skill-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      backdrop-filter: blur(5px);
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    
+    .skill-icon {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    
+    .skill-card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    /* Projects Section */
+    #projects {
+      margin-bottom: 80px;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      position: relative;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      backdrop-filter: blur(5px);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    
+    .project-number {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: var(--accent);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5);
+    }
+    
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 20px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    
+    .project-link:hover {
+      text-decoration: underline;
+    }
+    
+    .project-link i {
+      margin-left: 8px;
+      transition: transform 0.2s;
+    }
+    
+    .project-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Contact Section */
+    #contact {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 60px 0;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .social-links a {
+      color: var(--text);
+      font-size: 2rem;
+      transition: all 0.3s;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    
+    .social-links a:hover {
+      color: var(--accent);
+      transform: translateY(-5px);
+      background: rgba(30, 41, 59, 0.9);
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* Section Headings */
+    h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      nav {
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      
+      .skills-grid, .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      #hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      #hero p {
+        font-size: 1.1rem;
+      }
+      
+      .profile-picture {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .social-links a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">ANAGH GOEL</div>
+      <nav>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="assets/resume.pdf" target="_blank">Resume</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <!-- Add your profile picture here -->
+        <img src="assets/profile.jpeg" alt="Anagh Goel" class="profile-picture">
+        <h1><span class="drawing-name">ANAGH GOEL</span></h1>
+        <p>Developer & Problem Solver</p>
+        <p>Building secure, innovative digital solutions</p>
+      </section>
+
+      <section id="skills">
+        <h2>SKILLS & TOOLS</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h3>Languages</h3>
+            <p>C++, Python, C, JavaScript</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Web Development</h3>
+            <p>HTML, CSS, JS, Flask</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-database"></i></div>
+            <h3>Database</h3>
+            <p>MySQL, Firebase</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-tools"></i></div>
+            <h3>Tools</h3>
+            <p>Git, VS Code, Linux</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>PROJECT SHOWCASE</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-number">1</div>
+            <h3>Secure QR Code Scanner</h3>
+            <p>Scans QR codes for phishing URLs using VirusTotal API. Built with Firebase, webcam support, and sleek UI.</p>
+            <a href="https://github.com/yourproject1" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="project-card">
+            <div class="project-number">2</div>
+            <h3>Meteor Escape</h3>
+            <p>2D C++ OpenGL game. Dodge meteors in real-time. Features boosters, score tracking, and smooth gameplay.</p>
+            <a href="https://github.com/yourproject2" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="project-card">
+            <div class="project-number">3</div>
+            <h3>Typing Dash</h3>
+            <p>Web-based typing tester with WPM metrics, error tracking, and practice levels. HTML + CSS + JS.</p>
+            <a href="https://github.com/yourproject3" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="project-card">
+            <div class="project-number">4</div>
+            <h3>Investment Portfolio Tracker</h3>
+            <p>MATLAB tool for risk analysis, optimization, and growth visualization of investment portfolios.</p>
+            <a href="https://github.com/yourproject4" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>CONNECT WITH ME</h2>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anagh-goel-291a7b252/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/AnaghGoelGitHub" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="mailto:anaghgoel07@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Portfolio loaded successfully!");
+      
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Add hover effects for cards
+      const cards = document.querySelectorAll('.skill-card, .project-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.5)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.3)';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
